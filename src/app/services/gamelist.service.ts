@@ -1,6 +1,6 @@
 import { ReturnStatement } from '@angular/compiler';
 import { Injectable } from '@angular/core';
-import { GameItem } from 'src/app/GameItem';
+import { GameItem } from 'src/app/model/GameItem';
 
 
 

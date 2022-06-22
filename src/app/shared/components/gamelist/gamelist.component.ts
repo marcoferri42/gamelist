@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { GamelistService } from '../../../services/gamelist.service';
 import { Router } from '@angular/router';
-import { GameItem } from '../../../GameItem';
+import { GameItem } from '../../../model/GameItem';
 
 @Component({
   selector: 'app-gamelist',

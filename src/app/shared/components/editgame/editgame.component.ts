@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { GamelistService } from '../../../services/gamelist.service';
-import { GameItem } from '../../../GameItem';
+import { GameItem } from '../../../model/GameItem';
 
 @Component({
   selector: 'app-editgame',
