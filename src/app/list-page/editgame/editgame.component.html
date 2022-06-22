@@ -1,0 +1,26 @@
+<body style="height:max-content;">
+  <div>
+    <br><br><br><br>
+    <h1 style="color: white; font-size: 50px;">Modifica {{game.nome}} </h1>
+    <form [formGroup]="gameForm" class="formMain">
+      <fieldset>
+        <label>ID</label>
+        <input type="number" formControlName="id" readonly>
+        <label>Nome</label>
+        <input type="text" formControlName="nome">
+        <label>Descizione</label>
+        <textarea formControlName="descrizione"></textarea>
+        <label>Genere</label>
+        <input type="text" formControlName="genere">
+        <label>Rating</label>
+        <input type="text" formControlName="rating">
+        <label>Prezzo</label>
+        <input type="number" formControlName="prezzo">
+        <label>Anno di uscita</label>
+        <input type="number" formControlName="annoUscita">
+        <button type="button" (click)="modify(gameForm.value)">Modifica</button>
+        <button type="button" (click)="back()">Indietro</button>
+      </fieldset>
+    </form>
+  </div>
+</body>

@@ -1,0 +1,24 @@
+<body>
+    <br><br>
+    <mat-card-title class = "title">{{game.nome}}</mat-card-title>
+    <br><br>
+
+    <mat-card class="card">
+
+        <img mat-card-image class="img" src="{{game.img}}" alt="{{game.nome}}">
+        <mat-card-content>
+          <strong>Genere:  </strong> {{game.genere}}
+          <br>
+          <strong>Rating:  </strong> {{game.rating}}
+          <br>
+          <strong>Prezzo:  </strong> {{game.prezzo}}
+          <br>
+          <strong>Release: </strong> {{game.annoUscita.getFullYear()}}
+          <br>
+          <strong>Descrizione:</strong>
+          <br>
+          {{game.descrizione}}
+      </mat-card-content>
+
+    </mat-card>
+</body>
