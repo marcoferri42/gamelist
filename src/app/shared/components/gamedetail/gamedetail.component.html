@@ -1,12 +1,12 @@
 <body>
     <br><br>
-    <mat-card-title class = "title">{{game.nome}}</mat-card-title>
+    <div class = "title">{{game.nome}}</div>
     <br><br>
 
-    <mat-card class="card">
+    <div class="card">
+        <img class="img" src="{{game.img}}" alt="{{game.nome}}">
 
-        <img mat-card-image class="img" src="{{game.img}}" alt="{{game.nome}}">
-        <mat-card-content>
+        <div class="text">
           <strong>Genere:  </strong> {{game.genere}}
           <br>
           <strong>Rating:  </strong> {{game.rating}}
@@ -18,7 +18,6 @@
           <strong>Descrizione:</strong>
           <br>
           {{game.descrizione}}
-      </mat-card-content>
-
-    </mat-card>
+        </div>
+    </div>
 </body>
