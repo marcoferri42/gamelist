@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { GamelistService } from '../../services/gamelist.service';
+import { GamelistService } from '../../../services/gamelist.service';
 import { Router } from '@angular/router';
-import { GameItem } from '../../GameItem';
+import { GameItem } from '../../../GameItem';
 
 @Component({
   selector: 'app-gamelist',
@@ -12,27 +12,21 @@ import { GameItem } from '../../GameItem';
 export class GamelistComponent implements OnInit {
 
   games: GameItem[];
-  @Input() modifyMode: any;
-
-  constructor(gameService: GamelistService, private router: Router)
+  constructor(public gameService: GamelistService, private router: Router)
   {
-    this.games = gameService.gamesArray;
+    this.games = gameService.getGames();
   }
 
-  showDetail(id: number)
+  showDetail(selectedGame: GameItem)
   {
     this.router.navigate(['gamelist/gamedetail'])
-
-    //Qui verra implementato la call al database
-    localStorage.setItem("id",String(id));
+    this.gameService.selectedGame = selectedGame;
   }
 
-  editMode(id: number)
+  editGame(selectedGame: GameItem)
   {
-    this.router.navigate(['gamelist/modify'])
-
-    //Qui verra implementato la call al database
-    localStorage.setItem("id",String(id));
+    this.router.navigate(['gamelist/editgame'])
+    this.gameService.selectedGame = selectedGame;
   }
 
   ngOnInit(): void {

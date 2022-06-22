@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { GamelistService } from '../../services/gamelist.service';
-import { GameItem } from '../../GameItem';
+import { GamelistService } from '../../../services/gamelist.service';
+import { GameItem } from '../../../GameItem';
 
 @Component({
   selector: 'app-editgame',
@@ -10,8 +10,6 @@ import { GameItem } from '../../GameItem';
   styleUrls: ['./editgame.component.scss']
 })
 export class EditgameComponent implements OnInit {
-
-  gameId: number = 0;
 
   public gameForm = this.fb.group({
 
@@ -25,16 +23,15 @@ export class EditgameComponent implements OnInit {
     img : ['', Validators.required]
   });
 
-  game: GameItem = this.gameForm.value;
+  game?: GameItem;
 
-  constructor(private fb: FormBuilder, private gameService: GamelistService, private router: Router) { }
+  constructor(private fb: FormBuilder, private gameService: GamelistService, private router: Router) {
+    this.game = gameService.selectedGame;
+  }
 
   ngOnInit(): void {
-    this.gameId = Number(localStorage.getItem("id"))
-
-    this.game = this.gameService.getGameId(this.gameId)
-    this.gameForm.setValue(this.game)
-    console.log(this.game)
+    if(this.game != undefined)
+      this.gameForm.setValue(this.game)
   }
 
   modify(game : GameItem)
@@ -47,5 +44,5 @@ export class EditgameComponent implements OnInit {
   {
     this.router.navigate(['gamelist'])
   }
-
+  
 }

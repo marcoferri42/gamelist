@@ -1,26 +1,53 @@
-<body style="height:max-content;">
-  <div>
-    <br><br><br><br>
-    <h1 style="color: white; font-size: 50px;">Modifica {{game.nome}} </h1>
-    <form [formGroup]="gameForm" class="formMain">
+<body>
+  <br>
+  <div class="card">
+		<div class="card-image" style="background-image: url({{game?.img}})">	
+			<h2 class="card-heading">
+				{{game?.nome}}
+				<small>Modifica qui.</small>
+			</h2>
+		</div>
+		<form [formGroup]="gameForm" class="card-form">
       <fieldset>
-        <label>ID</label>
-        <input type="number" formControlName="id" readonly>
-        <label>Nome</label>
-        <input type="text" formControlName="nome">
-        <label>Descizione</label>
-        <textarea formControlName="descrizione"></textarea>
-        <label>Genere</label>
-        <input type="text" formControlName="genere">
-        <label>Rating</label>
-        <input type="text" formControlName="rating">
-        <label>Prezzo</label>
-        <input type="number" formControlName="prezzo">
-        <label>Anno di uscita</label>
-        <input type="number" formControlName="annoUscita">
-        <button type="button" (click)="modify(gameForm.value)">Modifica</button>
-        <button type="button" (click)="back()">Indietro</button>
+        <div class="input"[hidden]="true">
+          <input type="number" formControlName="id" />
+          <label class="input-label">Id</label>
+        </div>
+        <div class="input">
+          <input type="text" class="input-field" formControlName="nome"/>
+          <label class="input-label">Nome</label>
+        </div>
+        <div class="input">
+          <input type="text" class="input-field" formControlName="descrizione"/>
+          <label class="input-label">Descrizione</label>
+        </div>
+        <div class="input">
+          <input type="text" class="input-field" formControlName="genere"/>
+          <label class="input-label">Genere</label>
+        </div>
+        <div class="input">
+          <input type="text" class="input-field" formControlName="rating"/>
+          <label class="input-label">Rating</label>
+        </div>
+        <div class="input">
+          <input type="text" class="input-field" formControlName="prezzo"/>
+          <label class="input-label">Prezzo</label>
+        </div>
+        <div class="input">
+          <input type="text" class="input-field" formControlName="annoUscita"/>
+          <label class="input-label">Anno di uscita</label>
+        </div>
+        <div class="action">
+          <button class="action-button" (click)="modify(gameForm.value)">Modifica</button>
+        </div>
+        <div class="action">
+          <button class="action-button" (click)="back()">Indietro</button>
+        </div>
       </fieldset>
-    </form>
-  </div>
+		</form>
+		<div class="card-info">
+			<p>cacca</p>
+		</div>
+	</div>
+
 </body>

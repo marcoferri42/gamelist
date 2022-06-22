@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { GamelistService } from '../../services/gamelist.service';
+import { GamelistService } from '../../../services/gamelist.service';
 import { Router } from '@angular/router';
+import { GameItem } from 'src/app/GameItem';
 
 @Component({
   selector: 'app-gamedetail',
@@ -9,14 +10,11 @@ import { Router } from '@angular/router';
 })
 export class GamedetailComponent implements OnInit
 {
-  game: any;
-  id: any;
-
+  selectedGame: GameItem | undefined;
+  
   constructor(gameService: GamelistService, private router: Router)
   {
-    this.id = Number(localStorage.getItem("id"))
-    if(this.id != undefined)
-      this.game = gameService.getGameId(this.id)
+    this.selectedGame = gameService.selectedGame;
   }
 
   ngOnInit(): void {

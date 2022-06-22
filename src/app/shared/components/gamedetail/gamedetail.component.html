@@ -1,23 +1,23 @@
 <body>
     <br><br>
-    <div class = "title">{{game.nome}}</div>
+    <div class = "title">{{selectedGame?.nome}}</div>
     <br><br>
 
     <div class="card">
-        <img class="img" src="{{game.img}}" alt="{{game.nome}}">
+        <img class="img" src="{{selectedGame?.img}}" alt="{{selectedGame?.nome}}">
 
         <div class="text">
-          <strong>Genere:  </strong> {{game.genere}}
+          <strong>Genere:  </strong> {{selectedGame?.genere}}
           <br>
-          <strong>Rating:  </strong> {{game.rating}}
+          <strong>Rating:  </strong> {{selectedGame?.rating}}
           <br>
-          <strong>Prezzo:  </strong> {{game.prezzo}}
+          <strong>Prezzo:  </strong> {{selectedGame?.prezzo}}
           <br>
-          <strong>Release: </strong> {{game.annoUscita.getFullYear()}}
+          <strong>Release: </strong> {{selectedGame?.annoUscita?.getFullYear()}}
           <br>
           <strong>Descrizione:</strong>
           <br>
-          {{game.descrizione}}
+          {{selectedGame?.descrizione}}
         </div>
     </div>
 </body>
