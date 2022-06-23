@@ -1,5 +1,5 @@
 
-<body style="height:max-content;">
+<body>
     <br><br><br><br><br><br>
 <div class="listedItems" >
     <ul *ngFor="let game of games" >
@@ -11,7 +11,7 @@
             <div class="informations-container">
                 <h2 class="title">{{game.nome | uppercase}}</h2>
                 <p class="sub-title">Cliccare per piu info...</p>
-                <p class="price"><svg class="icon" style="width:24px;height:24px" viewBox="0 0 24 24">
+                <p class="price"><svg class="icon" viewBox="0 0 24 24">
                     <path fill="currentColor" d="M3,6H21V18H3V6M12,9A3,3 0 0,1 15,12A3,3 0 0,1 12,15A3,3 0 0,1 9,12A3,3 0 0,1 12,9M7,8A2,2 0 0,1 5,10V14A2,2 0 0,1 7,16H17A2,2 0 0,1 19,14V10A2,2 0 0,1 17,8H7Z" />
                 </svg>{{game.prezzo}}</p>
                 <div class="more-information">

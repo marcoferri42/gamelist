@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GamelistService } from '../../../services/gamelist.service';
+import { GameserviceService } from '../../../services/gameservice.service';
 import { Router } from '@angular/router';
 import { GameItem } from 'src/app/model/GameItem';
 
@@ -12,7 +12,7 @@ export class GamedetailComponent implements OnInit
 {
   selectedGame: GameItem | undefined;
   
-  constructor(gameService: GamelistService, private router: Router)
+  constructor(gameService: GameserviceService, private router: Router)
   {
     this.selectedGame = gameService.selectedGame;
   }

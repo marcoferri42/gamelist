@@ -1,53 +1,63 @@
 <body>
   <br>
   <div class="card">
-		<div class="card-image" style="background-image: url({{game?.img}})">	
+		<div class="card-image" style="background-image: url({{game?.img}})">
 			<h2 class="card-heading">
 				{{game?.nome}}
 				<small>Modifica qui.</small>
 			</h2>
 		</div>
-		<form [formGroup]="gameForm" class="card-form">
-      <fieldset>
-        <div class="input"[hidden]="true">
+    
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="card-form">
+
+      <div class="form-group">
+
+        <div class="input" [hidden]="true">
           <input type="number" formControlName="id" />
           <label class="input-label">Id</label>
         </div>
+      
         <div class="input">
           <input type="text" class="input-field" formControlName="nome"/>
           <label class="input-label">Nome</label>
         </div>
+
         <div class="input">
           <input type="text" class="input-field" formControlName="descrizione"/>
           <label class="input-label">Descrizione</label>
         </div>
+
         <div class="input">
           <input type="text" class="input-field" formControlName="genere"/>
           <label class="input-label">Genere</label>
         </div>
+
         <div class="input">
           <input type="text" class="input-field" formControlName="rating"/>
           <label class="input-label">Rating</label>
         </div>
+
         <div class="input">
           <input type="text" class="input-field" formControlName="prezzo"/>
           <label class="input-label">Prezzo</label>
         </div>
+
         <div class="input">
           <input type="text" class="input-field" formControlName="annoUscita"/>
           <label class="input-label">Anno di uscita</label>
         </div>
+
         <div class="action">
-          <button class="action-button" (click)="modify(gameForm.value)">Modifica</button>
+          <button class="action-button" type="submit" [disabled]="!form.valid">Modifica</button>
         </div>
-        <div class="action">
-          <button class="action-button" (click)="back()">Indietro</button>
-        </div>
-      </fieldset>
+
+      </div>
 		</form>
 		<div class="card-info">
-			<p>cacca</p>
+			<p>...</p>
 		</div>
 	</div>
-
 </body>
+
+
+
