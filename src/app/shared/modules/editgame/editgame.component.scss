@@ -4,6 +4,7 @@ body
 {	
     background-image: url('https://i.imgur.com/ZWjvIHN.png');
     background-repeat: repeat;
+	height: max-content;
 }
 
 
@@ -36,11 +37,23 @@ input {
 .card-image {
 	border-radius: 8px;
 	overflow: hidden;
-	padding-bottom: 65%;
+	padding-bottom: 0;
 	background-repeat: no-repeat;
 	background-size: 150%;
 	background-position: 0 5%;
 	position: relative;
+}
+
+.card-info {
+	padding: 1rem 1rem;
+	text-align: center;
+	font-size: .875rem;
+	color: #8597a3;
+	a {
+		display: block;
+		color: #6658d3;
+		text-decoration: none;
+	}
 }
 
 .card-heading {
@@ -118,14 +131,3 @@ input {
 	}
 }
 
-.card-info {
-	padding: 1rem 1rem;
-	text-align: center;
-	font-size: .875rem;
-	color: #8597a3;
-	a {
-		display: block;
-		color: #6658d3;
-		text-decoration: none;
-	}
-}

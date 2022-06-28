@@ -1,12 +1,7 @@
 <body>
   <br>
   <div class="card">
-		<div class="card-image" style="background-image: url({{game?.img}})">
-			<h2 class="card-heading">
-				{{game?.nome}}
-				<small>Modifica qui.</small>
-			</h2>
-		</div>
+		<div class="card-image" style="background-image: url({{game?.img}})"></div>
     
     <form [formGroup]="form" (ngSubmit)="onSubmit()" class="card-form">
 
@@ -53,6 +48,7 @@
 
       </div>
 		</form>
+    
 		<div class="card-info">
 			<p>...</p>
 		</div>
