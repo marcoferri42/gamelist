@@ -7,4 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent{
   constructor() { }
+
+  /**
+   * Reindirizza a GitHub
+   */
+  redirect(){
+    window.location.replace("http://www.w3schools.com");
+    console.log("clicked")
+  }
 }

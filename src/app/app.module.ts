@@ -15,7 +15,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
   declarations: [
     AppComponent,
     HomeComponent,
-    NavbarComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +23,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     AppRoutingModule,
     NgbModule,
     MatCardModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

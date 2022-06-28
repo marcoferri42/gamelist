@@ -6,7 +6,7 @@ const routes: Routes =
 [
   { path:   '',           redirectTo: 'home', pathMatch: 'full' },
   { path:   'home',       component:  HomeComponent},
-  { path:   'gamelist',   loadChildren: () => import('./shared/modules/gamelist/gamelist.module').then(m => m.GameListModule) }
+  { path:   'gamelist',   loadChildren: () => import('./shared/modules/search/search.module').then(m => m.SearchModule) }
 ];
 
 @NgModule({

@@ -39,8 +39,7 @@ export class EditgameComponent implements OnInit {
    * Salva GameItem da form modificato
    * Reindirizza a /gamelist
    */
-  onSubmit()
-  {
+  onSubmit(): void{
     this.gameService.setGame(this.form.getRawValue())
     this.router.navigate(['gamelist'])
   }
@@ -48,8 +47,7 @@ export class EditgameComponent implements OnInit {
   /**
    * Reindirizza a /gamelist
    */
-  back()
-  {
+  back(): void{
     this.router.navigate(['gamelist'])
   }
 

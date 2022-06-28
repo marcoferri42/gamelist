@@ -10,7 +10,7 @@ import { GameListRoutingModule } from './gamelist-routing.module';
     imports: [
       CommonModule,
       GameListRoutingModule
-    ]
+    ],
+    exports: [GamelistComponent]
   })
-  export class GameListModule { }
-  
+  export class GameListModule {}
