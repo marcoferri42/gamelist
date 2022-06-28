@@ -9,6 +9,11 @@ import { GameserviceService } from './services/gameservice.service';
 export class AppComponent {
   title = 'gamelist';
 
+
+  /**
+   * Inizializza l'array Games[]
+   * @param gameService 
+   */
   constructor(public gameService: GameserviceService){
     gameService.initializeGames();
   }

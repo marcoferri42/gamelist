@@ -1,5 +1,17 @@
 export class GameItem{
     
+
+    /**
+     * Oggetto GameItem
+     * @param id 
+     * @param nome 
+     * @param descrizione 
+     * @param genere 
+     * @param rating 
+     * @param prezzo 
+     * @param annoUscita 
+     * @param img 
+     */
     constructor(
         public id: number,
         public nome: string,

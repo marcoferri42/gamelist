@@ -12,6 +12,10 @@ export class GameserviceService {
   constructor() {
   }
 
+
+/**
+ * Override di un GameItem di currentGames[] con @param game
+ */
   setGame(game: GameItem): void {
     if(this.currentGames != undefined) {
       for (let i = 0; i < this.currentGames.length; i++) {
@@ -23,6 +27,11 @@ export class GameserviceService {
     //TODO: Errore handle se currentgames == undefined?
   }
 
+
+  /**
+   * Semplice get
+   * @returns GameItems[]
+   */
   getCurrentGames(): GameItem[]{
     if(this.currentGames != undefined && this.currentGames != [])
       return this.currentGames;
@@ -30,10 +39,19 @@ export class GameserviceService {
     return [];
   }
 
+  /**
+   * Carica in currentGames[] tutti i GameItem disponibili dal mock getGames().
+   * Viene chiamata in app.component.ts
+   */
   initializeGames(): void{
     this.currentGames = this.getGames();
   }
 
+
+  /**
+   * Mock database
+   * @returns 
+   */
   getGames(): GameItem[] {
     return [ 
       { id: 1, nome: 'Final Fantasy', descrizione: 'Purificazione dei cristalli', genere: 'GDR', rating: '8/10', prezzo: '50€', annoUscita: new Date(2022, 11, 17), img: 'https://res.cloudinary.com/cenergy-innovation-limited-head-office/image/fetch/c_scale,q_70,f_auto,h_740/https://d1dtruvuor2iuy.cloudfront.net/media/catalog/product/p/w/pwb000257409.jpg', }, 

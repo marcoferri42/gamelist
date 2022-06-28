@@ -8,17 +8,15 @@ import { GameItem } from 'src/app/model/GameItem';
   templateUrl: './gamedetail.component.html',
   styleUrls: ['./gamedetail.component.scss']
 })
-export class GamedetailComponent implements OnInit
-{
+export class GamedetailComponent{
+
+  /**
+   * Prende in input un GameItem selezionato dal service
+   */
   selectedGame: GameItem | undefined;
-  
   constructor(gameService: GameserviceService, private router: Router)
   {
     this.selectedGame = gameService.selectedGame;
-  }
-
-  ngOnInit(): void {
-
   }
 
 }

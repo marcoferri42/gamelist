@@ -11,16 +11,6 @@ import { GameItem } from '../../../model/GameItem';
 })
 export class EditgameComponent implements OnInit {
 
-  game : GameItem;
-
-  constructor(private fb: FormBuilder, public gameService: GameserviceService, private router: Router) {
-    this.game = gameService.selectedGame!;
-  }
-
-  ngOnInit(): void {
-    this.form.setValue(this.game)
-  }
-
   form = new FormGroup({
     id: new FormControl("", Validators.required),
     nome: new FormControl("", Validators.required),
@@ -33,32 +23,34 @@ export class EditgameComponent implements OnInit {
   });
 
 
+  game : GameItem;
+  constructor(private fb: FormBuilder, public gameService: GameserviceService, private router: Router) {
+    this.game = gameService.selectedGame!;
+  }
 
+  /**
+   * Inserisce nel form dati da GameItem selezionato
+   */
+  ngOnInit(): void {
+    this.form.setValue(this.game)
+  }
+
+  /**
+   * Salva GameItem da form modificato
+   * Reindirizza a /gamelist
+   */
   onSubmit()
   {
-    console.log(this.form.getRawValue())
     this.gameService.setGame(this.form.getRawValue())
-
     this.router.navigate(['gamelist'])
   }
 
-
-
-
-
-  /*
-
-
-  onSubmit() {
-    console.log("reactive form submitted");
-    console.log(this.form.getRawValue());
-  }
-
-  
-
+  /**
+   * Reindirizza a /gamelist
+   */
   back()
   {
     this.router.navigate(['gamelist'])
   }
-  */
+
 }
