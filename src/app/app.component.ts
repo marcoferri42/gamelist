@@ -7,9 +7,6 @@ import { GameserviceService } from './services/gameservice.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'gamelist';
-
-
   /**
    * Inizializza l'array Games[]
    * @param gameService 

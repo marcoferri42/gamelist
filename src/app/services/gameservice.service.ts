@@ -1,3 +1,5 @@
+import { ReturnStatement } from '@angular/compiler';
+import { noUndefined } from '@angular/compiler/src/util';
 import {Injectable, OnInit} from '@angular/core';
 import { GameItem } from 'src/app/model/GameItem';
 
@@ -6,27 +8,36 @@ import { GameItem } from 'src/app/model/GameItem';
   providedIn: 'root'
 })
 export class GameserviceService {
-  selectedGame?: GameItem;
-  currentGames?: GameItem[];
+  private selectedGame?: GameItem;
+  private currentGames?: GameItem[];
   
-  constructor() {
+  constructor() {}
+
+  setSelectedGame(selectedGame: GameItem) {
+    this.selectedGame = selectedGame;
   }
 
+  getSelectedGame(): GameItem | undefined{
+    if(this.selectedGame != undefined)
+      return this.selectedGame;
+
+    throw new Error('SelectedGame Undefined.');
+  }
 
 /**
  * Override di un GameItem di currentGames[] con @param game
  */
   setGame(game: GameItem): void {
-    if(this.currentGames != undefined) {
+    if(this.currentGames != undefined && this.currentGames != []) {
       for (let i = 0; i < this.currentGames.length; i++) {
         if (this.currentGames[i].id == game.id) {
-          this.currentGames[i] = game
+          this.currentGames[i] = game;
         }
       }
     }
-    //TODO: Errore handle se currentgames == undefined?
+   
+    throw new Error('currentGames Undefined or empty.');
   }
-
 
   /**
    * Semplice get
@@ -35,8 +46,8 @@ export class GameserviceService {
   getCurrentGames(): GameItem[]{
     if(this.currentGames != undefined && this.currentGames != [])
       return this.currentGames;
-    console.log("currentgames vuoto");
-    return [];
+    
+    throw new Error('currentGames Undefined or empty.');
   }
 
   /**
@@ -46,7 +57,6 @@ export class GameserviceService {
   initializeGames(): void{
     this.currentGames = this.getGames();
   }
-
 
   /**
    * Mock database

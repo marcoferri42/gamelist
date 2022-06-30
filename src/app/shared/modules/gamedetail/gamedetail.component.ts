@@ -16,7 +16,7 @@ export class GamedetailComponent{
   selectedGame: GameItem | undefined;
   constructor(gameService: GameserviceService, private router: Router)
   {
-    this.selectedGame = gameService.selectedGame;
+    this.selectedGame = gameService.getSelectedGame();
   }
 
 }

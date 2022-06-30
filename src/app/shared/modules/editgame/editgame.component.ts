@@ -25,7 +25,7 @@ export class EditgameComponent implements OnInit {
 
   game : GameItem;
   constructor(private fb: FormBuilder, public gameService: GameserviceService, private router: Router) {
-    this.game = gameService.selectedGame!;
+    this.game = gameService.getSelectedGame()!;
   }
 
   /**

@@ -29,7 +29,7 @@ export class GamelistComponent implements OnInit {
   showDetail(selectedGame: GameItem) {
     this.router.navigate(['gamelist/gamedetail'])
     if(selectedGame)
-      this.gameService.selectedGame = selectedGame;
+      this.gameService.setSelectedGame(selectedGame);
   }
 
   /**
@@ -39,7 +39,7 @@ export class GamelistComponent implements OnInit {
    */
   editGame(selectedGame: GameItem) {
     this.router.navigate(['gamelist/editgame'])
-    this.gameService.selectedGame = selectedGame;
+    this.gameService.setSelectedGame(selectedGame);
   }
 
 }
