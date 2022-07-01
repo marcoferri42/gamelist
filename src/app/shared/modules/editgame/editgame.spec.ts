@@ -24,22 +24,12 @@ describe('EditGameComponent', () => {
     it('.onSubmit() should re-route window.', () => {
         const fixture = TestBed.createComponent(EditgameComponent);
         const component = fixture.debugElement.componentInstance;
-        const router = fixture.debugElement.injector.get(Router);
         const service = fixture.debugElement.injector.get(GameserviceService);
 
-       
+        service.setSelectedGame(new GameItem(1, "test", "test", "test", "test", "test", new Date(2020, 12, 20), "test"))
         
         component.onSubmit();
         expect(window.location.pathname == 'gamelist').toBeTrue()
     })
-
-    /**
-     * service = new GameserviceService();
-        service.setSelectedGame(new GameItem(1, "test", "test", "test", "test", "test", new Date(2020, 12, 20), "test"))
-     * 
-     * 
-     * 
-    })
-     */
    
 })
