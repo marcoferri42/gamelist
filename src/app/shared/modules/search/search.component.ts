@@ -19,7 +19,6 @@ export class SearchComponent {
 
   onSubmit(): void{
     console.log(this.form.getRawValue());
-    this.searchService.setSearchFilter = this.form.getRawValue();
-    window.location.reload();
+    console.log(this.searchService.filterGames(this.form.getRawValue()));
   }
 }

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { GameserviceService } from '../../../services/gameservice.service';
 import { Router } from '@angular/router';
 import { GameItem } from '../../../model/GameItem';
+import { SearchComponent } from '../search/search.component';
+import { SearchserviceService } from 'src/app/services/searchservice.service';
 
 @Component({
   selector: 'app-gamelist',
@@ -12,13 +14,13 @@ import { GameItem } from '../../../model/GameItem';
 export class GamelistComponent implements OnInit {
 
   games?: GameItem[];
-  constructor(public gameService: GameserviceService, private router: Router) { }
+  constructor(public gameService: GameserviceService, public searchService: SearchserviceService, private router: Router) { }
 
   /**
    * Carica currentgames dal service
    */
   ngOnInit(): void {
-    this.games = this.gameService.getCurrentGames();
+    this.games = this.searchService.filterGames("");
   }
 
   /**

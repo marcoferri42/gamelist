@@ -1,15 +1,45 @@
 import { Injectable } from '@angular/core';
-
+import { GameItem } from '../model/GameItem';
+import { GameserviceService } from './gameservice.service';
 @Injectable({
   providedIn: 'root'
 })
 export class SearchserviceService {
-  setSearchFilter ? : String;
-  constructor() { }
+  constructor(public gameService : GameserviceService) { }
 
-  //TODO: fare parte del sorting dei giochi in base al nome
+  filterGames(searchFilter: string): GameItem[]{
+    const result: GameItem[] = [];
+    if(searchFilter != ""){
+      this.gameService.getCurrentGames().forEach(i => {
+        if(contained(i.nome, searchFilter))
 
-  //TODO: capire come impostare questa cosa della lista : 
-  //fare display di currentgames e aggiornarlo con una funzione che crea un nuovo array di games qui(?)
-  //oppure spostare direttamente i currentgames qui e inizializzarli da qui per poi filtrare la ricerca e il display(?)
+          result.push(i);
+      });
+      return result;
+    }
+    else
+      return this.gameService.getCurrentGames();
+  }
+}
+
+/**
+ * Seach alg fatto malissimo, .include non funzionava porcc
+ * puoi implementare cosa che fa punti in base a lettere matchate
+ * mappa punti,id (di gioco) sortabile con bubble3
+ * @param nome 
+ * @param searchFilter 
+ * @returns 
+*/
+function contained(nome: string, searchFilter: string): Boolean {
+  let nomeArray: any[] = nome.toString().split("",nome.length);
+  let filterArray: any[] = searchFilter.toString().split("",searchFilter.length);
+  let result = false;
+
+  for(let i=0; i<nomeArray.length; i++){
+    filterArray.forEach(element => {
+      if(element == nomeArray[i])
+        result = true;
+    });
+  }
+  return result;
 }

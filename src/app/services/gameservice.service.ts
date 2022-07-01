@@ -3,13 +3,12 @@ import { noUndefined } from '@angular/compiler/src/util';
 import {Injectable, OnInit} from '@angular/core';
 import { GameItem } from 'src/app/model/GameItem';
 
-
 @Injectable({
   providedIn: 'root'
 })
 export class GameserviceService {
   private selectedGame?: GameItem;
-  private currentGames?: GameItem[];
+  private currentGames : GameItem[] = [];
   
   constructor() {}
 
@@ -21,22 +20,23 @@ export class GameserviceService {
     if(this.selectedGame != undefined)
       return this.selectedGame;
 
-    throw new Error('SelectedGame Undefined.');
+    else
+      throw new Error('SelectedGame Undefined.');
   }
 
 /**
  * Override di un GameItem di currentGames[] con @param game
  */
   setGame(game: GameItem): void {
-    if(this.currentGames != undefined && this.currentGames != []) {
+    if(this.currentGames != []) {
       for (let i = 0; i < this.currentGames.length; i++) {
         if (this.currentGames[i].id == game.id) {
           this.currentGames[i] = game;
         }
       }
     }
-   
-    throw new Error('currentGames Undefined or empty.');
+    else
+      throw new Error('CurrentGames Empty.');
   }
 
   /**
@@ -44,10 +44,11 @@ export class GameserviceService {
    * @returns GameItems[]
    */
   getCurrentGames(): GameItem[]{
-    if(this.currentGames != undefined && this.currentGames != [])
+    if(this.currentGames != [])
       return this.currentGames;
     
-    throw new Error('currentGames Undefined or empty.');
+    else
+      throw new Error('CurrentGames Empty.');
   }
 
   /**
