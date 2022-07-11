@@ -5,7 +5,7 @@ import { SearchRoutingComponent } from './search-routing.module';
 
 import { FormsModule } from '@angular/forms'; 
 import { ReactiveFormsModule } from '@angular/forms';
-import { GameListModule } from '../gamelist/gamelist.module';
+import { GameListModule } from './gamelist/gamelist.module';
 
 @NgModule({
     declarations: [

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { GameserviceService } from '../../../services/gameservice.service';
 import { Router } from '@angular/router';
 import { GameItem } from '../../../model/GameItem';
-import { SearchComponent } from '../search/search.component';
+import { SearchComponent } from '../search.component';
 import { SearchserviceService } from 'src/app/services/searchservice.service';
 
 @Component({
